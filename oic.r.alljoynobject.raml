@@ -1,0 +1,73 @@
+#%RAML 0.8
+title: OCFAllJoynObject
+version: v1.0.0-20170305
+documentation:
+  - title: OCF Copyright
+    content: Copyright (c) 2017 Open Connectivity Foundation, Inc. All rights reserved.
+  - title: OCF License
+    content: !include LICENSE.md
+  - title: OCF Disclaimer
+    content: !include DISCLAIMER.md
+schemas:
+  - AllJoynObject:  !include oic.r.alljoynobject.json
+  - AllJoynObject-ll:  !include oic.r.alljoynobject-ll.json
+traits:
+    - interface-baseline:
+        queryParameters:
+          if:
+            enum: ["oic.if.baseline"]
+    - interface-ll:
+        queryParameters:
+          if:
+              enum: ["oic.if.ll"]
+
+
+/example/AllJoynObjectBaselineResURI:
+  description: |
+    The resource is a collection of resources that were all derived from the same AllJoyn object.
+
+  is: [ interface-baseline ]
+
+  get:
+    description: |
+      Retrieves the current AllJoyn object information.
+    responses:
+      200:
+        body:
+          application/json:
+            schema: AllJoynObject
+            example: |
+              {
+                "rt":    ["oic.r.alljoynobject","oic.wk.col"],
+                "id":    "unique_example_id",
+                "links": [
+                  {"href": "/myRes1URI", "rt": ["x.example.widget.false"], "if": ["oic.if.r","oic.if.rw","oic.if.baseline"]},
+                  {"href": "/myRes2URI", "rt": ["x.example.widget.true"], "if": ["oic.if.r","oic.if.rw","oic.if.baseline"]},
+                  {"href": "/myRes3URI", "rt": ["x.example.widget.method1"], "if": ["oic.if.rw","oic.if.baseline"]},
+                  {"href": "/myRes4URI", "rt": ["x.example.widget.method2"], "if": ["oic.if.rw","oic.if.baseline"]}
+                ]
+              }
+
+/example/AllJoynObjectLLResURI:
+  description: |
+    The resource is a collection of resources that were all derived from the same AllJoyn object.
+
+  displayName: AllJoyn Object
+  is: [ interface-ll ] 
+
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            schema: AllJoynObject-ll
+            example: |
+              {
+                "links": [
+                  {"href": "/myRes1URI", "rt": ["x.example.widget.false"], "if": ["oic.if.r","oic.if.rw","oic.if.baseline"]},
+                  {"href": "/myRes2URI", "rt": ["x.example.widget.true"], "if": ["oic.if.r","oic.if.rw","oic.if.baseline"]},
+                  {"href": "/myRes3URI", "rt": ["x.example.widget.method1"], "if": ["oic.if.rw","oic.if.baseline"]},
+                  {"href": "/myRes4URI", "rt": ["x.example.widget.method2"], "if": ["oic.if.rw","oic.if.baseline"]}
+                ]
+              }
+ 
