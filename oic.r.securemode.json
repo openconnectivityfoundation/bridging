@@ -7,7 +7,7 @@
     "oic.r.securemode": {
       "type": "object",
       "properties": {
-        "securemode": {
+        "secureMode": {
           "type": "boolean",
           "description": "Status of the Secure Mode"
         }
