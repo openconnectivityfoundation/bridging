@@ -20,5 +20,5 @@
     {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
     {"$ref": "#/definitions/oic.r.securemode"}
   ],
-  "required": [ "securemode" ]
+  "required": [ "secureMode" ]
 }
