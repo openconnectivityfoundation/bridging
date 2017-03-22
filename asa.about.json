@@ -1,0 +1,308 @@
+{
+  "id": "http://openinterconnect.org/asamapping/schemas/asa.about.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description" : "Copyright (c) 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+  "title": "About",
+  "definitions": {
+    "asa.about.announce": {
+      "type": "object",
+      "properties": {
+        "objectDesciption": {
+          "type": "array",
+          "items": {"type": "object"},
+          "desciption": "",
+          "x-ocf-conversion": "oic.wk.d",
+          "x-to-ocf": [
+            "for x=0, x<sizeof(objectDesciption): ocf.dmv += objectDesciption[x].version."
+          ],
+          "x-from-ocf": [
+            "no mapping"
+          ]
+        }
+    },
+    "asa.about": {
+      "type": "object",
+      "properties": {
+        "AppId": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+          "description": "Unique id",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.d",
+            "x-to-ocf": [
+              "ocf.di = AppId"
+            ],
+            "x-from-ocf": [
+              "AppId = ocf.di"
+            ]
+          }
+        },
+        "DefaultLanguage": {
+          "type": "string",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.con",
+            "x-to-ocf": [
+              "ocf.dl = DefaultLanguage"
+            ],
+            "x-from-ocf": [
+              "DefaultLanguage = ocf.dl",
+              "otherwise: DefaultLanguage = <empty string>"
+            ]
+          }
+        },
+        "DeviceName": {
+          "type": "string",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.con.p",
+            "x-to-ocf": [
+              "ocf.mnpn = DeviceName"
+            ],
+            "x-from-ocf": [
+              "if asa.about::getaboutdata(languagetag), index = arrayindex ocf.mnpn(languagetag).",
+              "else, index = arrayindex ocf.mnpn[ocf.dl].",
+              "DeviceName = ocf.mnpn.value[index]",
+              "otherwise: DeviceName = <empty string>"
+            ]
+          }
+        },
+        "DeviceId": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.p",
+            "x-to-ocf": [
+              "ocf.pi = DeviceId",
+              "ocf.vid = DeviceId"
+            ],
+            "x-from-ocf": [
+              "DeviceId = ocf.pi"
+            ]
+          }
+        },
+        "AppName": {
+          "type": "string",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.con, oic.wk.d",
+            "x-to-ocf": [
+              "ocf.n = AppName"
+            ],
+            "x-from-ocf": [
+              "if (ocf.ln != null), for x=0, x<sizeof(ocf.ln): AppName[x] = ocf.ln.value[x]"
+              "else, AppName = ocf.n",
+              "otherwise: AppName = <empty string>"
+            ]
+          }
+        },
+        "Manufacturer": {
+          "type": "string",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.d, oic.wk.p",
+            "x-to-ocf": [
+              "ocf.dmn.value[ocf.dl] = Manufacturer",
+              "ocf.mnmn = Manufacturer"
+            ],
+            "x-from-ocf": [
+              "if asa.about::getaboutdata(languagetag), index = arrayindex ocf.dmn(languagetag).",
+              "else, index = arrayindex ocf.dmn[ocf.dl].",
+              "Manufacturer = ocf.dmn.value[index]",
+              "otherwise: Manufacturer = <empty string>"
+            ]
+          }
+        },
+        "ModelNumber": {
+          "type": "string",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.d, oic.wk.p",
+            "x-to-ocf": [
+              "ocf.dmno = ModelNumber",
+              "ocf.mnmo = ModelNumber"
+            ],
+            "x-from-ocf": [
+              "ModelNumber = ocf.dmno",
+              "otherwise: ModelNumber = <empty string>"
+            ]
+          }
+        },
+        "SupportedLanguages": {
+          "type": "array",
+          "items": {"type": "string"},
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.con",
+            "x-to-ocf": [
+              "no mapping"
+            ],
+            "x-from-ocf": [
+              "for x=0, x<sizeof(ocf.ln): SupportedLanguages[x] = ocf.ln.language[x]"
+              "otherwise: SupportedLanguages = []"
+            ]
+          }
+        },
+        "Description": {
+          "type": "string",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.d",
+            "x-to-ocf": [
+              "ocf.ld = Description"
+            ],
+            "x-from-ocf": [
+              "if asa.about::getaboutdata(languagetag), index = arrayindex ocf.ld(languagetag).",
+              "else, index = arrayindex ocf.ld[ocf.dl].",
+              "Description = ocf.ld.value[index]",
+              "otherwise: Description = <empty string>"
+            ]
+          }
+        },
+        "DateOfManufacture": {
+          "type": "string",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.p",
+            "x-to-ocf": [
+              "ocf.mute = mute"
+            ],
+            "x-from-ocf": [
+              "DateOfManufacture = ocf.mndt",
+              "otherwise: DateOfManufacture = <empty string>"
+            ]
+          }
+        },
+        "SoftwareVersion": {
+          "type": "string",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.d",
+            "x-to-ocf": [
+              "ocf.sv = SoftwareVersion"
+            ],
+            "x-from-ocf": [
+              "SoftwareVersion = ocf.sv",
+              "otherwise: SoftwareVersion = <empty string>"
+            ]
+          }
+        },
+        "AJSoftwareVersion": {
+          "type": "string",
+          "x-ocf-conversion": {
+            "x-from-ocf": [
+              "AJSoftwareVersion = Software Version of the Bridge"
+            ]
+          }
+        },
+        "HardwareVersion": {
+          "type": "string",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.p",
+            "x-to-ocf": [
+              "ocf.mnhw = HardwareVersion",
+              "otherwise: no mapping"
+            ],
+            "x-from-ocf": [
+              "HardwareVersion = ocf.mnhw",
+              "otherwise: no mapping"
+            ]
+          }
+        },
+        "SupportUrl": {
+          "type": "string",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.p",
+            "x-to-ocf": [
+              "ocf.mnsl = SupportUrl"
+            ],
+            "x-from-ocf": [
+              "SupportUrl = ocf.mnsl"
+            ]
+          }
+        },
+        "org.openconnectivity.mnml": {
+          "type": "string",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.p",
+            "x-to-ocf": [
+              "ocf.mnml = org.openconnectivity.mnml",
+              "otherwise: no mapping"
+            ],
+            "x-from-ocf": [
+              "org.openconnectivity.mnml = ocf.mnml",
+              "otherwise: no mapping"
+            ]
+          }
+        },
+        "org.openconnectivity.mnpv": {
+          "type": "string",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.p",
+            "x-to-ocf": [
+              "ocf.mnpv = org.openconnectivity.mnpv",
+              "otherwise: no mapping"
+            ],
+            "x-from-ocf": [
+              "org.openconnectivity.mnpv = ocf.mnpv",
+              "otherwise: no mapping"
+            ]
+          }
+        },
+        "org.openconnectivity.mnos": {
+          "type": "string",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.p",
+            "x-to-ocf": [
+              "ocf.mnos = org.openconnectivity.mnpv",
+              "otherwise: no mapping"
+            ],
+            "x-from-ocf": [
+              "org.openconnectivity.mnpv = ocf.mnos",
+              "otherwise: no mapping"
+            ]
+          }
+        },
+        "org.openconnectivity.mnfv": {
+          "type": "string",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.p",
+            "x-to-ocf": [
+              "ocf.mnfv = org.openconnectivity.mnfv",
+              "otherwise: no mapping"
+            ],
+            "x-from-ocf": [
+              "org.openconnectivity.mnfv = ocf.mnfv",
+              "otherwise: no mapping"
+            ]
+          }
+        },
+        "org.openconnectivity.st": {
+          "type": "string",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.p",
+            "x-to-ocf": [
+              "ocf.st = org.openconnectivity.st",
+              "otherwise: no mapping"
+            ],
+            "x-from-ocf": [
+              "org.openconnectivity.mnfv = ocf.st",
+              "otherwise: no mapping"
+            ]
+          }
+        },
+        "org.openconnectivity.piid": {
+          "type": "string",
+          "x-ocf-conversion": {
+            "x-ocf-alias": "oic.wk.d",
+            "x-to-ocf": [
+              "ocf.piid = org.openconnectivity.piid",
+              "otherwise: ",
+              "if authenticated, Peer GUID.",
+              "else Hash(DeviceId,AppId) where Hash=concatenate the Device Id andd the AppId, apply the algorithm in IETF RFC 4122 section 4.3, with SHA-1."
+            ],
+            "x-from-ocf": [
+              "org.openconnectivity.piid = ocf.piid",
+            ]
+          }
+        }
+      }
+    }
+  },
+  "type": "object",
+  "allOf": [
+    {"$ref": "#/definitions/asa.about"}
+  ],
+  "required": [ "AppId","DefaultLanguage","DeviceId","AppName","Manufacturer","ModelNumber","SupportedLanguages","Description","SoftwareVersion","AJSoftwareVersion" ]
+}
