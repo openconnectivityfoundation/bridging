@@ -7,13 +7,13 @@
     "asa.about.announce": {
       "type": "object",
       "properties": {
-        "objectDesciption": {
+        "objectDescription": {
           "type": "array",
           "items": {"type": "object"},
           "desciption": "",
           "x-ocf-conversion": "oic.wk.d",
           "x-to-ocf": [
-            "for x=0, x<sizeof(objectDesciption): ocf.dmv += objectDesciption[x].version."
+            "for x=0, x<sizeof(objectDescription): ocf.dmv += objectDescription[x].version."
           ],
           "x-from-ocf": [
             "no mapping"
