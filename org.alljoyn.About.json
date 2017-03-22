@@ -1,10 +1,10 @@
 {
-  "id": "http://openinterconnect.org/asamapping/schemas/asa.About.json#",
+  "id": "http://openinterconnect.org/asamapping/schemas/org.alljoyn.About.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description" : "Copyright (c) 2017 Open Connectivity Foundation, Inc. All rights reserved.",
   "title": "About",
   "definitions": {
-    "asa.About.Announce": {
+    "org.alljoyn.About.Announce": {
       "type": "object",
       "properties": {
         "objectDescription": {
@@ -21,7 +21,7 @@
           ]
         }
     },
-    "asa.About": {
+    "org.alljoyn.About": {
       "type": "object",
       "properties": {
         "AppId": {
@@ -59,7 +59,7 @@
               "ocf.mnpn = DeviceName"
             ],
             "x-from-ocf": [
-              "if asa.About::GetAboutData(languagetag), index = arrayindex ocf.mnpn(languagetag).",
+              "if org.alljoyn.About::GetAboutData(languagetag), index = arrayindex ocf.mnpn(languagetag).",
               "else, index = arrayindex ocf.mnpn[ocf.dl].",
               "DeviceName = ocf.mnpn.value[index]",
               "otherwise: DeviceName = <empty string>"
@@ -103,7 +103,7 @@
               "ocf.mnmn = Manufacturer"
             ],
             "x-from-ocf": [
-              "if asa.About::GetAboutData(languagetag), index = arrayindex ocf.dmn(languagetag).",
+              "if org.alljoyn.About::GetAboutData(languagetag), index = arrayindex ocf.dmn(languagetag).",
               "else, index = arrayindex ocf.dmn[ocf.dl].",
               "Manufacturer = ocf.dmn.value[index]",
               "otherwise: Manufacturer = <empty string>"
@@ -146,7 +146,7 @@
               "ocf.ld = Description"
             ],
             "x-from-ocf": [
-              "if asa.About::GetAboutData(languagetag), index = arrayindex ocf.ld(languagetag).",
+              "if org.alljoyn.About::GetAboutData(languagetag), index = arrayindex ocf.ld(languagetag).",
               "else, index = arrayindex ocf.ld[ocf.dl].",
               "Description = ocf.ld.value[index]",
               "otherwise: Description = <empty string>"
@@ -303,7 +303,7 @@
   },
   "type": "object",
   "allOf": [
-    {"$ref": "#/definitions/asa.About"}
+    {"$ref": "#/definitions/org.alljoyn.About"}
   ],
   "required": [ "AppId","DefaultLanguage","DeviceId","AppName","Manufacturer","ModelNumber","SupportedLanguages","Description","SoftwareVersion","AJSoftwareVersion" ]
 }
