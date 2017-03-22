@@ -1,10 +1,10 @@
 {
-  "id": "http://openinterconnect.org/asamapping/schemas/asa.about.json#",
+  "id": "http://openinterconnect.org/asamapping/schemas/asa.About.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description" : "Copyright (c) 2017 Open Connectivity Foundation, Inc. All rights reserved.",
   "title": "About",
   "definitions": {
-    "asa.about.announce": {
+    "asa.About.Announce": {
       "type": "object",
       "properties": {
         "objectDescription": {
@@ -13,14 +13,15 @@
           "desciption": "",
           "x-ocf-conversion": "oic.wk.d",
           "x-to-ocf": [
-            "for x=0, x<sizeof(objectDescription): ocf.dmv += objectDescription[x].version."
+            "for x=0, x<sizeof(objectDescription):"
+            "   for y=0, x<sizeof(objectDescription[x].interfaces): ocf.dmv += objectDescription[x].interfaces[y] + '.' + objectDescription[x].interfaces[y].version."
           ],
           "x-from-ocf": [
             "no mapping"
           ]
         }
     },
-    "asa.about": {
+    "asa.About": {
       "type": "object",
       "properties": {
         "AppId": {
@@ -58,7 +59,7 @@
               "ocf.mnpn = DeviceName"
             ],
             "x-from-ocf": [
-              "if asa.about::getaboutdata(languagetag), index = arrayindex ocf.mnpn(languagetag).",
+              "if asa.About::GetAboutData(languagetag), index = arrayindex ocf.mnpn(languagetag).",
               "else, index = arrayindex ocf.mnpn[ocf.dl].",
               "DeviceName = ocf.mnpn.value[index]",
               "otherwise: DeviceName = <empty string>"
@@ -102,7 +103,7 @@
               "ocf.mnmn = Manufacturer"
             ],
             "x-from-ocf": [
-              "if asa.about::getaboutdata(languagetag), index = arrayindex ocf.dmn(languagetag).",
+              "if asa.About::GetAboutData(languagetag), index = arrayindex ocf.dmn(languagetag).",
               "else, index = arrayindex ocf.dmn[ocf.dl].",
               "Manufacturer = ocf.dmn.value[index]",
               "otherwise: Manufacturer = <empty string>"
@@ -145,7 +146,7 @@
               "ocf.ld = Description"
             ],
             "x-from-ocf": [
-              "if asa.about::getaboutdata(languagetag), index = arrayindex ocf.ld(languagetag).",
+              "if asa.About::GetAboutData(languagetag), index = arrayindex ocf.ld(languagetag).",
               "else, index = arrayindex ocf.ld[ocf.dl].",
               "Description = ocf.ld.value[index]",
               "otherwise: Description = <empty string>"
@@ -182,7 +183,7 @@
           "type": "string",
           "x-ocf-conversion": {
             "x-from-ocf": [
-              "AJSoftwareVersion = Software Version of the Bridge"
+              "AJSoftwareVersion = AllJoyn Software Version of the Bridge"
             ]
           }
         },
@@ -290,7 +291,7 @@
               "ocf.piid = org.openconnectivity.piid",
               "otherwise: ",
               "if authenticated, Peer GUID.",
-              "else Hash(DeviceId,AppId) where Hash=concatenate the Device Id andd the AppId, apply the algorithm in IETF RFC 4122 section 4.3, with SHA-1."
+              "else Hash(DeviceId,AppId) where Hash=concatenate the Device Id and the AppId, apply the algorithm in IETF RFC 4122 section 4.3, with SHA-1."
             ],
             "x-from-ocf": [
               "org.openconnectivity.piid = ocf.piid",
@@ -302,7 +303,7 @@
   },
   "type": "object",
   "allOf": [
-    {"$ref": "#/definitions/asa.about"}
+    {"$ref": "#/definitions/asa.About"}
   ],
   "required": [ "AppId","DefaultLanguage","DeviceId","AppName","Manufacturer","ModelNumber","SupportedLanguages","Description","SoftwareVersion","AJSoftwareVersion" ]
 }
