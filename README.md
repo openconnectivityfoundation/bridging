@@ -1,2 +1,2 @@
 # bridging
-Repository for OCF Bridging TG data models.  For more information, see the OCF Bridging Specification.
+Repository for OCF Bridging data models.  For more information, see the OCF Bridging Specification.
