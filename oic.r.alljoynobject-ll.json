@@ -1,21 +1,21 @@
 {
-  "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.alljoynobject-ll#",
+  "id": "https://www.openconnectivity.org/ocf-apis/bridging/schemas/oic.r.alljoynobject-ll#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description" : "Copyright (c) 2017 Open Connectivity Foundation, Inc. All rights reserved.",
-  "title": "AllJoyn Object Link List Schema",
+  "title": "AllJoyn Object Links List Schema",
   "definitions": {
     "oic.r.alljoynobject-ll": {
       "type": "object",
       "allOf": [
         {
-          "$ref": "oic.collection.linkslist-schema.json#/definitions/oic.collection.alllinks"
+          "$ref": "../../core/schemas/oic.collection.linkslist-schema.json#/definitions/oic.collection.alllinks"
         }
       ]
     }
   },
   "type": "object",
   "allOf": [
-    {"$ref": "oic.core.json#/definitions/oic.core"},
+    {"$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core"},
     {"$ref": "#/definitions/oic.r.alljoynobject-ll"}
   ]
 }
