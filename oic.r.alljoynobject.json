@@ -11,13 +11,15 @@
           "$ref": "oic.collection-schema.json#/definitions/oic.collection"
         },
         {
-          "rt": {
-            "type": "array",
-            "minItems": 2,
-            "maxItems": 2,
-            "uniqueItems": true,
-            "items": {
-              "enum": ["oic.r.alljoynobject","oic.wk.col"]
+          "properties": {
+            "rt": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "enum": ["oic.r.alljoynobject","oic.wk.col"]
+              }
             }
           }
         }
