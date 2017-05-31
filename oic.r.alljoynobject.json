@@ -8,7 +8,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "oic.collection-schema.json#/definitions/oic.collection"
+          "$ref": "../../core/schemas/oic.collection-schema.json#/definitions/oic.collection"
         },
         {
           "properties": {
@@ -32,3 +32,4 @@
     {"$ref": "#/definitions/oic.r.alljoynobject"}
   ]
 }
+
