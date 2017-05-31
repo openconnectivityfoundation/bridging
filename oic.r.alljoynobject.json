@@ -1,4 +1,4 @@
-
+{
   "id": "https://www.openconnectivity.org/ocf-apis/bridging/schemas/oic.r.alljoynobject.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description" : "Copyright (c) 2017 Open Connectivity Foundation, Inc. All rights reserved.",
