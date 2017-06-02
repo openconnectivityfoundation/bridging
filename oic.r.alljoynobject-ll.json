@@ -5,7 +5,6 @@
   "title": "AllJoyn Object Links List Schema",
   "definitions": {
     "oic.r.alljoynobject-ll": {
-      "type": "object",
       "allOf": [
         {
           "$ref": "../../core/schemas/oic.collection.linkslist-schema.json#/definitions/oic.collection.alllinks"
@@ -13,9 +12,7 @@
       ]
     }
   },
-  "type": "object",
   "allOf": [
-    {"$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core"},
     {"$ref": "#/definitions/oic.r.alljoynobject-ll"}
   ]
 }
