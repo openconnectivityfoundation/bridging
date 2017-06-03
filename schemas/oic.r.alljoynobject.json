@@ -1,0 +1,34 @@
+{
+  "id": "https://www.openconnectivity.org/ocf-apis/bridging/schemas/oic.r.alljoynobject.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description" : "Copyright (c) 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+  "title": "AllJoyn Object",
+  "definitions": {
+    "oic.r.alljoynobject": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "../../core/schemas/oic.collection-schema.json#/definitions/oic.collection"
+        },
+        {
+          "properties": {
+            "rt": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "enum": ["oic.r.alljoynobject","oic.wk.col"]
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "type": "object",
+  "allOf": [
+    {"$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core"},
+    {"$ref": "#/definitions/oic.r.alljoynobject"}
+  ]
+}
