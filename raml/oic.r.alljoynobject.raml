@@ -40,10 +40,10 @@ traits:
                 "rt":    ["oic.r.alljoynobject","oic.wk.col"],
                 "id":    "unique_example_id",
                 "links": [
-                  {"href": "/myRes1URI", "rt": ["x.example.widget.false"], "if": ["oic.if.r","oic.if.rw","oic.if.baseline"]},
-                  {"href": "/myRes2URI", "rt": ["x.example.widget.true"], "if": ["oic.if.r","oic.if.rw","oic.if.baseline"]},
-                  {"href": "/myRes3URI", "rt": ["x.example.widget.method1"], "if": ["oic.if.rw","oic.if.baseline"]},
-                  {"href": "/myRes4URI", "rt": ["x.example.widget.method2"], "if": ["oic.if.rw","oic.if.baseline"]}
+                  {"href": "/myRes1URI", "rt": ["x.example.widget.false"], "if": ["oic.if.r","oic.if.rw","oic.if.baseline"], "eps": [{"ep": "coaps://[2001:db8:a::b1d4]:11111"}]},
+                  {"href": "/myRes2URI", "rt": ["x.example.widget.true"], "if": ["oic.if.r","oic.if.rw","oic.if.baseline"], "eps": [{"ep": "coaps://[2001:db8:a::b1d4]:11111"}]},
+                  {"href": "/myRes3URI", "rt": ["x.example.widget.method1"], "if": ["oic.if.rw","oic.if.baseline"], "eps": [{"ep": "coaps://[2001:db8:a::b1d4]:11111"}]},
+                  {"href": "/myRes4URI", "rt": ["x.example.widget.method2"], "if": ["oic.if.rw","oic.if.baseline"], "eps": [{"ep": "coaps://[2001:db8:a::b1d4]:11111"}]}
                 ]
               }
 
@@ -63,8 +63,8 @@ traits:
             schema: AllJoynObject-ll
             example: |
               [
-                {"href": "/myRes1URI", "rt": ["x.example.widget.false"], "if": ["oic.if.r","oic.if.rw","oic.if.baseline"]},
-                {"href": "/myRes2URI", "rt": ["x.example.widget.true"], "if": ["oic.if.r","oic.if.rw","oic.if.baseline"]},
-                {"href": "/myRes3URI", "rt": ["x.example.widget.method1"], "if": ["oic.if.rw","oic.if.baseline"]},
-                {"href": "/myRes4URI", "rt": ["x.example.widget.method2"], "if": ["oic.if.rw","oic.if.baseline"]}
+                {"href": "/myRes1URI", "rt": ["x.example.widget.false"], "if": ["oic.if.r","oic.if.rw","oic.if.baseline"], "eps": [{"ep": "coaps://[2001:db8:a::b1d4]:11111"}]},
+                {"href": "/myRes2URI", "rt": ["x.example.widget.true"], "if": ["oic.if.r","oic.if.rw","oic.if.baseline"], "eps": [{"ep": "coaps://[2001:db8:a::b1d4]:11111"}]},
+                {"href": "/myRes3URI", "rt": ["x.example.widget.method1"], "if": ["oic.if.rw","oic.if.baseline"], "eps": [{"ep": "coaps://[2001:db8:a::b1d4]:11111"}]},
+                {"href": "/myRes4URI", "rt": ["x.example.widget.method2"], "if": ["oic.if.rw","oic.if.baseline"], "eps": [{"ep": "coaps://[2001:db8:a::b1d4]:11111"}]}
               ]
