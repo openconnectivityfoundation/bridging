@@ -12,14 +12,18 @@ schemas:
   - AllJoynObject:  !include ../schemas/oic.r.alljoynobject.json
   - AllJoynObject-ll:  !include ../schemas/oic.r.alljoynobject-ll.json
 traits:
-    - interface-baseline:
-        queryParameters:
-          if:
-            enum: ["oic.if.baseline"]
     - interface-ll:
         queryParameters:
           if:
               enum: ["oic.if.ll"]
+    - interface-baseline:
+        queryParameters:
+          if:
+            enum: ["oic.if.baseline"]
+    - interface-all:
+        queryParameters:
+          if:
+            enum: ["oic.if.ll", "oic.if.baseline"]
 
 /example/AllJoynObject/?if=oic.if.baseline:
   description: |
