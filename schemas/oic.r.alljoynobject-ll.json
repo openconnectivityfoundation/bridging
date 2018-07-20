@@ -1,13 +1,13 @@
 {
-  "id": "https://www.openconnectivity.org/ocf-apis/bridging/schemas/oic.r.alljoynobject-ll#",
+  "id": "http://openconnectivityfoundation.github.io/bridging/schemas/oic.r.alljoynobject-ll#",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "description" : "Copyright (c) 2017,2018 Open Connectivity Foundation, Inc. All rights reserved.",
+  "description" : "Copyright (c) 2017, 2018 Open Connectivity Foundation, Inc. All rights reserved.",
   "title": "AllJoyn Object Links List Schema",
   "definitions": {
     "oic.r.alljoynobject-ll": {
       "type": "array",
       "items": {
-        "$ref": "../../core/schemas/oic.collection-schema.json#/definitions/oic.oic-link"
+        "$ref": "http://openconnectivityfoundation.github.io/core/schemas/oic.collection-schema.json#/definitions/oic.oic-link"
       }
     }
   },

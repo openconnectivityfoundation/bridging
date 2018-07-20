@@ -3,19 +3,19 @@ title: OCFAllJoynObject
 version: v1.0.0-20170531
 documentation:
   - title: OCF Copyright
-    content: Copyright (c) 2017 Open Connectivity Foundation, Inc. All rights reserved.
+    content: Copyright (c) 2017, 2018 Open Connectivity Foundation, Inc. All rights reserved.
   - title: OCF License
-    content: !include ../LICENSE.md
+    content: !include LICENSE.md
   - title: OCF Disclaimer
-    content: !include ../DISCLAIMER.md
+    content: !include DISCLAIMER.md
 schemas:
-  - AllJoynObject:  !include ../schemas/oic.r.alljoynobject.json
-  - AllJoynObject-ll:  !include ../schemas/oic.r.alljoynobject-ll.json
+  - AllJoynObject:  !include schemas/oic.r.alljoynobject.json
+  - AllJoynObject-ll:  !include schemas/oic.r.alljoynobject-ll.json
 traits:
     - interface-ll:
         queryParameters:
           if:
-              enum: ["oic.if.ll"]
+            enum: ["oic.if.ll"]
     - interface-baseline:
         queryParameters:
           if:
@@ -25,7 +25,7 @@ traits:
           if:
             enum: ["oic.if.ll", "oic.if.baseline"]
 
-/example/AllJoynObject/?if=oic.if.baseline:
+/example/AllJoynObject?if=oic.if.baseline:
   description: |
     This resource is a collection of resources that were all derived from the same AllJoyn object.
 
@@ -52,11 +52,11 @@ traits:
                 ]
               }
 
-/example/AllJoynObject/?if=oic.if.ll:
+/example/AllJoynObject?if=oic.if.ll:
   description: |
     This resource is a collection of resources that were all derived from the same AllJoyn object.
 
-  is: [ interface-ll ] 
+  is: [ interface-ll ]
 
   get:
     description: |

@@ -3,16 +3,16 @@ title: OCFSecureMode
 version: v1.0.0-20170531
 documentation:
   - title: OCF Copyright
-    content: Copyright (c) 2017 Open Connectivity Foundation, Inc. All rights reserved.
+    content: Copyright (c) 2017, 2018 Open Connectivity Foundation, Inc. All rights reserved.
   - title: OCF License
-    content: !include ../LICENSE.md
+    content: !include LICENSE.md
   - title: OCF Disclaimer
-    content: !include ../DISCLAIMER.md
+    content: !include DISCLAIMER.md
 schemas:
-  - SecureMode: !include ../schemas/oic.r.securemode.json
+  - SecureMode: !include schemas/oic.r.securemode.json
 traits:
  - interface :
-     queryParameters: 
+     queryParameters:
        if:
          enum: ["oic.if.rw", "oic.if.baseline"]
 

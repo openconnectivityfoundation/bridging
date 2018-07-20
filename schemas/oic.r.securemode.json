@@ -1,7 +1,7 @@
 {
-  "id": "https://www.openconnectivity.org/ocf-apis/bridging/schemas/oic.r.securemode.json#",
+  "id": "http://openconnectivityfoundation.github.io/bridging/schemas/oic.r.securemode.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "description" : "Copyright (c) 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+  "description" : "Copyright (c) 2017, 2018 Open Connectivity Foundation, Inc. All rights reserved.",
   "title": "Secure Mode",
   "definitions": {
     "oic.r.securemode": {
@@ -16,7 +16,7 @@
   },
   "type": "object",
   "allOf": [
-    {"$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core"},
+    {"$ref": "http://openconnectivityfoundation.github.io/core/schemas/oic.core-schema.json#/definitions/oic.core"},
     {"$ref": "#/definitions/oic.r.securemode"}
   ],
   "required": [ "secureMode" ]

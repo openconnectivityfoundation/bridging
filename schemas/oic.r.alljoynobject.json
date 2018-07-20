@@ -1,7 +1,7 @@
 {
-  "id": "https://www.openconnectivity.org/ocf-apis/bridging/schemas/oic.r.alljoynobject.json#",
+  "id": "http://openconnectivityfoundation.github.io/bridging/schemas/oic.r.alljoynobject.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "description" : "Copyright (c) 2017,2018 Open Connectivity Foundation, Inc. All rights reserved.",
+  "description" : "Copyright (c) 2017, 2018 Open Connectivity Foundation, Inc. All rights reserved.",
   "title": "AllJoyn Object",
   "definitions": {
     "oic.r.alljoynobject": {
@@ -21,9 +21,9 @@
   },
   "type": "object",
   "allOf": [
-    {"$ref": "../../core/schemas/oic.core-schema.json#/definitions/oic.core"},
-    {"$ref": "../../core/schemas/oic.collection-schema.json#/definitions/oic.collection.properties"},
-    {"$ref": "../../core/schemas/oic.collection-schema.json#/definitions/oic.collection.links.arrayoflinks"},
+    {"$ref": "http://openconnectivityfoundation.github.io/core/schemas/oic.core-schema.json#/definitions/oic.core"},
+    {"$ref": "http://openconnectivityfoundation.github.io/core/schemas/oic.collection-schema.json#/definitions/oic.collection.properties"},
+    {"$ref": "http://openconnectivityfoundation.github.io/core/schemas/oic.collection-schema.json#/definitions/oic.collection.links.arrayoflinks"},
     {"$ref": "#/definitions/oic.r.alljoynobject"}
   ]
 }
