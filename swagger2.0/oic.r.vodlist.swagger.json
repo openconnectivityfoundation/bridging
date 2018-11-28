@@ -20,18 +20,18 @@
         ],
         "responses": {
             "200": {
-              "description" : "",
+              "description" : "Example response payload",
               "x-example":
                 {
                   "rt":    ["oic.r.vodlist"],
                   "vods":  [
                     {
-                      "n": "Window shatter sensor",
+                      "n": "Smoke sensor",
                       "di": "54919CA5-4101-4AE4-595B-353C51AA1234",
                       "econame": "Z-Wave"
                     },
                     {
-                      "n": "Door Lock",
+                      "n": "Thermostat",
                       "di": "54919CA5-4101-4AE4-595B-353C51AA5678",
                       "econame": "Zigbee"
                     }
