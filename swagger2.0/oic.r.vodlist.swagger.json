@@ -53,20 +53,28 @@
   },
   "definitions": {
     "vodentry" : {
-      "description": "Information of a VOD created by the Bridge",
+      "description": "Information for a VOD created by the Bridge",
       "type": "object",
       "properties": {
         "n": {
-            "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/n"
+          "allOf": [
+            {
+              "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.common.properties.core-schema.json#/definitions/n"
+            },
+            {
+              "description": "Human friendly name of the VOD; mirror of 'n' from /oic/d of the VOD itself",
+              "readOnly": true
+            }
+          ]
         },
         "di" : {
-          "description": "Device Id of VOD",
+          "description": "Device Id of the VOD",
           "allOf": [
             {
               "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.types-schema.json#/definitions/uuid"
             },
             {
-              "description": "Unique identifier for device",
+              "description": "Unique identifier of the VOD",
               "readOnly": true
             }
           ]
@@ -74,7 +82,7 @@
         "econame": {
           "description": "Ecosystem Name of the Bridged Device which is exposed by this VOD",
           "type": "string",
-          "enum": [ "BLE", "oneM2M", "U+", "ZigBee", "Z-Wave" ],
+          "enum": [ "BLE", "oneM2M", "UPlus", "ZigBee", "Z-Wave" ],
           "readOnly": true
         }
       },
@@ -84,7 +92,7 @@
       "type": "object",
       "properties": {
         "n" :   {
-          "description": "Friendly name of the resource",
+          "description": "Friendly name of the VOD List Resource",
           "maxLength": 64,
           "readOnly": true,
           "type": "string"
@@ -115,12 +123,12 @@
             ],
             "type": "string"
           },
-          "minItems": 1,
+          "minItems": 2,
           "readOnly": true,
           "type": "array"
         },
         "vods": {
-          "description": "Array of VOD's info created by the Bridge",
+          "description": "Array of information per VOD created by the Bridge",
           "type": "array",
           "minItems": 0,
           "uniqueItems": true,
@@ -129,7 +137,8 @@
             "$ref": "#/definitions/vodentry"
           }
         }
-      }
+      },
+      "required": ["vods"]
     }
   }
 }
