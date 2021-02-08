@@ -67,7 +67,7 @@
         "econame": {
           "description": "Ecosystem Name of the Bridged Device which is exposed by this VOD",
           "type": "string",
-          "enum": [ "BLE", "oneM2M", "UPlus", "Zigbee", "Z-Wave" ],
+          "enum": [ "BLE", "oneM2M", "UPlus", "Zigbee", "Z-Wave", "EnOcean", "AllJoyn" ],
           "readOnly": true
         }
       },
