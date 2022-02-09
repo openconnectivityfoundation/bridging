@@ -41,12 +41,10 @@ jobs:
         # find . -type f \( -iname ".*" ! -iname ".htaccess" \)
         # Refrige  Refrigera
         echo 'FILE_LIST<<EOF' >> $GITHUB_ENV
-        find . -type f -iname "*.swagger.json" ! -name '*wk.rd*' ! -name '*coapcloudconf*' ! -name '*cloudapiforcloudservices*' >> $GITHUB_ENV
+        find . -type f -iname "*.swagger.json" ! -name '*wk.rd*' >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
         ## files not checked:
         find . -type f -name '*wk.rd*'
-        find . -type f -name '*coapcloudconf*'
-        find . -type f -name '*cloudapiforcloudservices*'
         # Using step output (space separated file list)
         FILES="$(find . -type f -iname "*.json")"
         echo "::set-output name=file_list::$FILES"
